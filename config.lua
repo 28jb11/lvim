@@ -23,19 +23,16 @@ lvim.plugins = {
     end
   },
   {
-    'wfxr/minimap.vim',
-    build = "cargo install --locked code-minimap",
-    -- cmd = {"Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight"},
-    config = function()
-      vim.cmd("let g:minimap_width = 10")
-      vim.cmd("let g:minimap_auto_start = 1")
-      vim.cmd("let g:minimap_auto_start_win_enter = 1")
-    end,
-  },
-  {
     "catppuccin/nvim", name = "catppuccin", priority = 1000
   },
+  {
+    'leoluz/nvim-dap-go'
+  },
+  {
+    'fatih/vim-go'
+  },
 }
+
 lvim.keys.normal_mode["|"] = ":vsplit<CR>"
 lvim.keys.normal_mode["-"] = ":split<CR>"
 vim.opt.cmdheight = 2             -- more space in the neovim command line for displaying messages
@@ -46,3 +43,5 @@ vim.opt.relativenumber = true     -- relative line numbers
 vim.opt.wrap = true               -- wrap lines
 lvim.colorscheme = "catppuccin"
 lvim.format_on_save.enabled = true
+require('dap-go').setup()
+vim.api.nvim_exec([[au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl]], false)
