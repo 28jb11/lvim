@@ -45,3 +45,5 @@ lvim.colorscheme = "catppuccin"
 lvim.format_on_save.enabled = true
 require('dap-go').setup()
 vim.api.nvim_exec([[au BufRead,BufNewFile *.gohtml set filetype=gohtmltmpl]], false)
+
+lvim.builtin.alpha.dashboard.section.header.val = {}
